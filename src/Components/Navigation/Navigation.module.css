@@ -1,0 +1,63 @@
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 50px;
+  align-items: center;
+}
+
+.logo {
+  font-size: 40px;
+  font-weight: 600;
+  letter-spacing: -2px;
+}
+
+.navigationContainer {
+  display: flex;
+  gap: 45px;
+  align-items: center;
+}
+
+.navigationLink {
+  font-size: 16px;
+  font-weight: 600;
+  padding: 15px 5px;
+  text-decoration: none;
+  color: black;
+}
+
+.navigationLink:hover {
+  border-bottom: 2px solid black;
+  cursor: pointer;
+}
+
+.cartIcon {
+  height: auto;
+  width: 30px;
+}
+
+/* SEARCH FORM */
+
+.searchForm {
+  position: relative;
+}
+
+/* SEARCH BAR */
+
+.searchInput {
+  border-radius: 25px;
+  outline: none;
+  border: none;
+  background-color: rgb(245, 245, 245);
+  padding: 15px 30px 15px 40px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.searchIcon {
+  height: auto;
+  width: 18px;
+  pointer-events: none;
+  position: absolute;
+  top: 15px;
+  left: 12px;
+}
