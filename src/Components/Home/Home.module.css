@@ -1,0 +1,39 @@
+.homePage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+}
+
+.welcomeContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+}
+
+.welcomeMessage {
+  font-size: 40px;
+  font-weight: 600;
+  letter-spacing: -2px;
+}
+
+.storeDescription {
+  font-size: 18px;
+  text-align: center;
+}
+
+.shopNowBtn {
+  font-size: 14px;
+  font-weight: 600;
+  padding: 15px 20px;
+  background-color: transparent;
+  border: 1px solid rgb(225, 225, 225);
+  border-radius: 5px;
+  transition: all 300ms;
+}
+
+.shopNowBtn:hover {
+  background-color: lightgray;
+  cursor: pointer;
+}
