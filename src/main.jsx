@@ -1,12 +1,24 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import Navigation from "./Components/Navigation/Navigation.jsx";
+import App from "./Components/App/App.jsx";
 import Home from "./Components/Home/Home.jsx";
+import Store from "./Components/Store/Store.jsx";
 import "./index.css";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      { path: "/", element: <Home /> },
+      { path: "/store", element: <Store /> },
+    ],
+  },
+]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <Navigation />
-    <Home />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );

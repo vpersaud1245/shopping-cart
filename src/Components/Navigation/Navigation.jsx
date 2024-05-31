@@ -1,19 +1,19 @@
 import styles from "./Navigation.module.css";
 import searchIcon from "../../assets/searchIcon.svg";
 import cartIcon from "../../assets/cartIcon.svg";
-
+import { Link } from "react-router-dom";
 function Navigation() {
   return (
     <nav className={styles.navigation}>
       <styles className={styles.navigationContainer}>
         <h1 className={styles.logo}>store.</h1>
         <div className={styles.navigationContainerLeft}>
-          <a href="" className={styles.navigationLink}>
+          <Link to="/" className={styles.navigationLink}>
             Home
-          </a>
-          <a href="" className={styles.navigationLink}>
+          </Link>
+          <Link to="/store" className={styles.navigationLink}>
             Store
-          </a>
+          </Link>
         </div>
       </styles>
       <styles className={styles.navigationContainer}>
