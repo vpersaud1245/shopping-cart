@@ -1,0 +1,19 @@
+.errorPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  gap: 80px;
+  font-size: 20px;
+}
+
+.errorTitle {
+  font-size: 50px;
+  font-weight: bold;
+}
+
+i {
+  color: gray;
+  font-style: italic;
+}
