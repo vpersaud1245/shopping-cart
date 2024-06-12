@@ -6,7 +6,9 @@ function Navigation() {
   return (
     <nav className={styles.navigation}>
       <styles className={styles.navigationContainer}>
-        <h1 className={styles.logo}>store.</h1>
+        <Link to="/" className={styles.logo}>
+          store.
+        </Link>
         <div className={styles.navigationContainerLeft}>
           <Link to="/" className={styles.navigationLink}>
             Home

@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import styles from "./Home.module.css";
 function Home() {
   return (
@@ -11,7 +11,9 @@ function Home() {
           vitality. Delivered straight from the store <br />
           to your home.
         </p>
-        <button className={styles.shopNowBtn}>Shop Now</button>
+        <Link to="/store">
+          <button className={styles.shopNowBtn}>Shop Now</button>
+        </Link>
         {/* Add Carousel */}
       </div>
     </div>
