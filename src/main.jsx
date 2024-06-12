@@ -1,7 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./Components/App/App.jsx";
-import { Home, productLoader } from "./Components/Home/Home.jsx";
+import Home from "./Components/Home/Home.jsx";
+import productLoader from "./Loaders/productLoader.jsx";
 import Store from "./Components/Store/Store.jsx";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
