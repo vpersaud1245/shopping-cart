@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import styles from "./Carousel.module.css";
 import { useEffect, useRef } from "react";
 
@@ -23,7 +23,7 @@ export default function Carousel() {
       const firstImg = document.querySelectorAll(
         'img[class*="productImage"]'
       )[0];
-      const firstImgWidth = firstImg.clientWidth + 14;
+      const firstImgWidth = firstImg.clientWidth;
       if (carousel.scrollLeft == 0) {
         autoScrollDirection.current = "right";
       }
@@ -46,7 +46,7 @@ export default function Carousel() {
   function handleArrowClick(e) {
     const carousel = document.querySelector("div[class*='carousel']");
     const firstImg = document.querySelectorAll('img[class*="productImage"]')[0];
-    const firstImgWidth = firstImg.clientWidth + 14;
+    const firstImgWidth = firstImg.clientWidth;
     carousel.scrollLeft +=
       e.target.id == "leftCarouselArrow" ? -firstImgWidth : firstImgWidth;
     setTimeout(() => {
@@ -66,12 +66,13 @@ export default function Carousel() {
       <div className={styles.carousel}>
         {products.length > 0 ? (
           products.map((product) => (
-            <img
-              key={product.id}
-              src={product.image}
-              alt={`Image of ${product.title}`}
-              className={styles.productImage}
-            />
+            <Link key={product.id} to={`/product=${product.id}`}>
+              <img
+                src={product.image}
+                alt={`Image of ${product.title}`}
+                className={styles.productImage}
+              />
+            </Link>
           ))
         ) : (
           <p>No products available</p>

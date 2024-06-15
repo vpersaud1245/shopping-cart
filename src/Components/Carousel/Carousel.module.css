@@ -40,8 +40,6 @@
   width: calc(100% / 3);
   margin-left: 14px;
   object-fit: contain;
-  border: 1px solid lightgray;
-  border-radius: 5px;
 }
 
 .carousel .productImage:first-child {
