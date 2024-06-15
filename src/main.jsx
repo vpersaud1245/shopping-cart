@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import App from "./Components/App/App.jsx";
 import Home from "./Components/Home/Home.jsx";
 import productLoader from "./Loaders/productLoader.jsx";
+import Carousel from "./Components/Carousel/Carousel.jsx";
 import Store from "./Components/Store/Store.jsx";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -14,7 +15,11 @@ const router = createBrowserRouter([
     element: <App />,
     errorElement: <ErrorPage />,
     children: [
-      { path: "/", element: <Home />, loader: productLoader },
+      {
+        path: "/",
+        element: <Home />,
+        children: [{ path: "/", element: <Carousel />, loader: productLoader }],
+      },
       { path: "/store", element: <Store /> },
     ],
   },

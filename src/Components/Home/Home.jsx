@@ -1,9 +1,9 @@
 import { Link, Outlet } from "react-router-dom";
 import styles from "./Home.module.css";
-function Home() {
+
+export default function Home() {
   return (
     <div className={styles.homePage}>
-      <Outlet />
       <div className={styles.welcomeContainer}>
         <h1 className={styles.welcomeMessage}>Welcome to store.</h1>
         <p className={styles.storeDescription}>
@@ -14,10 +14,8 @@ function Home() {
         <Link to="/store">
           <button className={styles.shopNowBtn}>Shop Now</button>
         </Link>
-        {/* Add Carousel */}
+        <Outlet />
       </div>
     </div>
   );
 }
-
-export default Home;
