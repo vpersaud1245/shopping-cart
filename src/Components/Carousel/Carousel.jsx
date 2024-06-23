@@ -66,7 +66,7 @@ export default function Carousel() {
       <div className={styles.carousel}>
         {products.length > 0 ? (
           products.map((product) => (
-            <Link key={product.id} to={`/product=${product.id}`}>
+            <Link key={product.id} to={`/products/${product.id}`}>
               <img
                 src={product.image}
                 alt={`Image of ${product.title}`}
