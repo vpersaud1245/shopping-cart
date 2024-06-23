@@ -3,11 +3,13 @@ import styles from "./Product.module.css";
 import backArrowSvg from "../../assets/backArrow.svg";
 import plusIcon from "../../assets/plusIcon.svg";
 import minusIcon from "../../assets/minusIcon.svg";
+import { useState } from "react";
 function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 export default function Product() {
+  const [qtyAmount, setQtyAmount] = useState(1);
   const product = useLoaderData();
   return (
     <div className={styles.ProductPage}>
@@ -36,13 +38,9 @@ export default function Product() {
             <button
               className={styles.minusQtyBtn}
               onClick={() => {
-                const qtyAmount = document.querySelector(
-                  "p[class*='qtyAmount']"
-                );
-                qtyAmount.textContent =
-                  parseInt(qtyAmount.textContent) > 1
-                    ? parseInt(qtyAmount.textContent) - 1
-                    : qtyAmount.textContent;
+                if (qtyAmount > 1) {
+                  setQtyAmount(qtyAmount - 1);
+                }
               }}
             >
               <img
@@ -51,14 +49,28 @@ export default function Product() {
                 className={styles.qtyBtnIcon}
               />
             </button>
-            <p className={styles.qtyAmount}>1</p>
+            <input
+              type="text"
+              className={styles.qtyAmount}
+              value={qtyAmount}
+              size="2"
+              maxLength="2"
+              onChange={(e) => {
+                const value = e.target.value;
+                if (Number(value) >= 0) {
+                  setQtyAmount(value);
+                }
+              }}
+              onBlur={() => {
+                if (qtyAmount === "" || qtyAmount < 1) {
+                  setQtyAmount(1);
+                }
+              }}
+            ></input>
             <button
               className={styles.addQtyBtn}
               onClick={() => {
-                const qtyAmount = document.querySelector(
-                  "p[class*='qtyAmount']"
-                );
-                qtyAmount.textContent = parseInt(qtyAmount.textContent) + 1;
+                setQtyAmount(qtyAmount + 1);
               }}
             >
               <img
