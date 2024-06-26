@@ -110,7 +110,7 @@
 }
 
 .buyNowBtn,
-.addToCartBtn {
+.cartBtn {
   max-width: 340px;
   padding: 1px 6px;
   border-radius: 8px;
@@ -120,11 +120,11 @@
 }
 
 .buyNowBtn:hover,
-.addToCartBtn:hover {
+.cartBtn:hover {
   cursor: pointer;
 }
 
-.addToCartBtn {
+.cartBtn {
   background-color: white;
 }
 
@@ -137,6 +137,6 @@
   background-color: var(--dark-blue);
 }
 
-.addToCartBtn:hover {
+.cartBtn:hover {
   background-color: #e5e5e5;
 }

@@ -3,14 +3,27 @@ import styles from "./Product.module.css";
 import backArrowSvg from "../../assets/backArrow.svg";
 import plusIcon from "../../assets/plusIcon.svg";
 import minusIcon from "../../assets/minusIcon.svg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import cart from "../../Cart/cart.js";
+import Product from "../../Product/product.js";
 function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-export default function Product() {
-  const [qtyAmount, setQtyAmount] = useState(1);
+export default function ProductPage() {
   const product = useLoaderData();
+  const [qtyAmount, setQtyAmount] = useState(1);
+  const [cartBtnText, updateCartBtnText] = useState(
+    cart.hasProduct(product.id) ? "Remove from Cart" : "Add to Cart"
+  );
+  useEffect(() => {
+    if (cart.hasProduct(product.id)) {
+      let cartProduct = cart.getProduct(product.id);
+      cartProduct.qty = qtyAmount;
+      console.log(cart.products);
+    }
+  }, [qtyAmount, product.id]);
+
   return (
     <div className={styles.ProductPage}>
       <Link className={styles.backBtn} to="/">
@@ -84,7 +97,23 @@ export default function Product() {
             {capitalizeFirstLetter(product.description)}
           </p>
           <button className={styles.buyNowBtn}>Buy Now</button>
-          <button className={styles.addToCartBtn}>Add to Bag</button>
+          <button
+            className={styles.cartBtn}
+            onClick={(e) => {
+              const btnText = e.target.textContent;
+              if (btnText === "Add to Cart") {
+                cart.addProduct(new Product(product.id, qtyAmount));
+              } else if (btnText === "Remove from Cart") {
+                cart.removeProduct(product.id);
+              }
+              updateCartBtnText(
+                cart.hasProduct(product.id) ? "Remove from Cart" : "Add to Cart"
+              );
+              console.log(cart.products);
+            }}
+          >
+            {cartBtnText}
+          </button>
         </div>
       </div>
     </div>
