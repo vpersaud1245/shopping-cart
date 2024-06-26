@@ -12,7 +12,9 @@ function capitalizeFirstLetter(string) {
 
 export default function ProductPage() {
   const product = useLoaderData();
-  const [qtyAmount, setQtyAmount] = useState(1);
+  const [qtyAmount, setQtyAmount] = useState(
+    cart.hasProduct(product.id) ? cart.getProduct(product.id).qty : 1
+  );
   const [cartBtnText, updateCartBtnText] = useState(
     cart.hasProduct(product.id) ? "Remove from Cart" : "Add to Cart"
   );
@@ -69,9 +71,9 @@ export default function ProductPage() {
               size="2"
               maxLength="2"
               onChange={(e) => {
-                const value = e.target.value;
+                let value = e.target.value;
                 if (Number(value) >= 0) {
-                  setQtyAmount(value);
+                  setQtyAmount(Number(value));
                 }
               }}
               onBlur={() => {

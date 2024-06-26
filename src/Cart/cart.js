@@ -1,5 +1,4 @@
 const cart = {
-  length: 0,
   products: [],
   getProduct: function (productId) {
     let productToReturn;
@@ -26,7 +25,7 @@ const cart = {
   },
   removeProduct: function (productId) {
     this.products = this.products.filter((value) => {
-      return value != productId;
+      return value.productId != productId;
     });
   },
 };
