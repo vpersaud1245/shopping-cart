@@ -3,28 +3,31 @@ import styles from "./Product.module.css";
 import backArrowSvg from "../../assets/backArrow.svg";
 import plusIcon from "../../assets/plusIcon.svg";
 import minusIcon from "../../assets/minusIcon.svg";
-import { useEffect, useState } from "react";
-import cart from "../../Cart/cart.js";
+import { useEffect, useState, useContext } from "react";
 import Product from "../../Product/product.js";
+import { CartContext } from "../../Cart/cart.jsx";
 function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 export default function ProductPage() {
+  const { getProduct, addProduct, hasProduct, products } =
+    useContext(CartContext);
+  console.log(products);
   const product = useLoaderData();
   const [qtyAmount, setQtyAmount] = useState(
-    cart.hasProduct(product.id) ? cart.getProduct(product.id).qty : 1
+    hasProduct(product.id) ? getProduct(product.id).qty : 1
   );
-  const [cartBtnText, updateCartBtnText] = useState(
-    cart.hasProduct(product.id) ? "Remove from Cart" : "Add to Cart"
-  );
+  const cartBtnText = hasProduct(product.id)
+    ? "Remove from Cart"
+    : "Add to Cart";
+
   useEffect(() => {
-    if (cart.hasProduct(product.id)) {
-      let cartProduct = cart.getProduct(product.id);
+    if (hasProduct(product.id)) {
+      let cartProduct = getProduct(product.id);
       cartProduct.qty = qtyAmount;
-      console.log(cart.products);
     }
-  }, [qtyAmount, product.id]);
+  }, [qtyAmount, product.id, getProduct, hasProduct]);
 
   return (
     <div className={styles.ProductPage}>
@@ -104,14 +107,11 @@ export default function ProductPage() {
             onClick={(e) => {
               const btnText = e.target.textContent;
               if (btnText === "Add to Cart") {
-                cart.addProduct(new Product(product.id, qtyAmount));
-              } else if (btnText === "Remove from Cart") {
-                cart.removeProduct(product.id);
+                addProduct(new Product(product.id, qtyAmount));
               }
-              updateCartBtnText(
-                cart.hasProduct(product.id) ? "Remove from Cart" : "Add to Cart"
-              );
-              console.log(cart.products);
+              //else if (btnText === "Remove from Cart") {
+              //   cart.removeProduct(product.id);
+              // }
             }}
           >
             {cartBtnText}

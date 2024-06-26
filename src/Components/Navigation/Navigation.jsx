@@ -2,7 +2,10 @@ import styles from "./Navigation.module.css";
 import searchIcon from "../../assets/searchIcon.svg";
 import cartIcon from "../../assets/cartIcon.svg";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { CartContext } from "../../Cart/cart";
 function Navigation() {
+  const { getCartLength } = useContext(CartContext);
   return (
     <nav className={styles.navigation}>
       <styles className={styles.navigationContainer}>
@@ -29,6 +32,7 @@ function Navigation() {
         </form>
         <a href="" className={styles.cartLink}>
           <img src={cartIcon} alt="" className={styles.cartIcon} />
+          <p className="cartLength">{getCartLength()}</p>
         </a>
       </styles>
     </nav>

@@ -1,10 +1,8 @@
-import Navigation from "../Navigation/Navigation";
-import { Outlet } from "react-router-dom";
+import { CartProvider } from "../../Cart/cart.jsx";
 function App() {
   return (
     <div className="app">
-      <Navigation />
-      <Outlet />
+      <CartProvider></CartProvider>
     </div>
   );
 }
