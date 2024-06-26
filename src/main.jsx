@@ -6,7 +6,7 @@ import { productsLoader, productLoader } from "./Loaders/productLoader.jsx";
 import Carousel from "./Components/Carousel/Carousel.jsx";
 import Store from "./Components/Store/Store.jsx";
 import "./index.css";
-import Product from "./Components/Product/Product.jsx";
+import ProductPage from "./Components/Product/Product.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "./Components/Error/ErrorPage.jsx";
 
@@ -26,7 +26,7 @@ const router = createBrowserRouter([
       { path: "/store", element: <Store /> },
       {
         path: "/products/:productID",
-        element: <Product />,
+        element: <ProductPage />,
         loader: productLoader,
       },
     ],
@@ -41,5 +41,5 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 
 /**
  * TODO:
- * Style product pages
+ * Implement removing products
  */
