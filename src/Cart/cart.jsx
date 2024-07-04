@@ -38,9 +38,24 @@ export function CartProvider() {
     }
   }
 
+  function removeProduct(productID) {
+    setProducts(
+      products.filter((product) => {
+        return product.productId != productID;
+      })
+    );
+  }
+
   return (
     <CartContext.Provider
-      value={{ products, addProduct, hasProduct, getProduct, getCartLength }}
+      value={{
+        products,
+        addProduct,
+        hasProduct,
+        getProduct,
+        getCartLength,
+        removeProduct,
+      }}
     >
       <Navigation />
       <Outlet />

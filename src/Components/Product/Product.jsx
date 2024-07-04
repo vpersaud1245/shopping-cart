@@ -11,7 +11,7 @@ function capitalizeFirstLetter(string) {
 }
 
 export default function ProductPage() {
-  const { getProduct, addProduct, hasProduct, products } =
+  const { getProduct, addProduct, hasProduct, products, removeProduct } =
     useContext(CartContext);
   console.log(products);
   const product = useLoaderData();
@@ -108,10 +108,9 @@ export default function ProductPage() {
               const btnText = e.target.textContent;
               if (btnText === "Add to Cart") {
                 addProduct(new Product(product.id, qtyAmount));
+              } else if (btnText === "Remove from Cart") {
+                removeProduct(product.id);
               }
-              //else if (btnText === "Remove from Cart") {
-              //   cart.removeProduct(product.id);
-              // }
             }}
           >
             {cartBtnText}
