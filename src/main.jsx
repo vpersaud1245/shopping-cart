@@ -23,7 +23,7 @@ const router = createBrowserRouter([
           { path: "/", element: <Carousel />, loader: productsLoader },
         ],
       },
-      { path: "/store", element: <Store /> },
+      { path: "/store", element: <Store />, loader: productsLoader },
       {
         path: "/products/:productID",
         element: <ProductPage />,
@@ -42,4 +42,5 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 /**
  * TODO:
  * Format product prices
+ * Add store page
  */

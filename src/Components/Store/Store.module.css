@@ -1,0 +1,53 @@
+.store {
+  display: flex;
+  width: 100%;
+}
+
+.sidebar {
+  border: 1px solid black;
+  padding: 50px;
+}
+
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  padding: 20px;
+  align-items: center;
+}
+
+.productCard {
+  border: 3px solid rgb(245, 245, 245, 1);
+  aspect-ratio: 10/10;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  justify-content: flex-end;
+  gap: 50px;
+}
+
+.productImg {
+  height: auto;
+  width: 40%;
+  background-color: transparent;
+  align-self: center;
+}
+
+.productInfo {
+  width: 100%;
+  padding: 0 10px;
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.productTitle,
+.productPrice {
+  font-weight: 600;
+}
+
+.productCategory {
+  color: #a3a3a3;
+}
