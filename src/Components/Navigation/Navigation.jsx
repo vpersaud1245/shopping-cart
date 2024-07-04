@@ -32,7 +32,9 @@ function Navigation() {
         </form>
         <a href="" className={styles.cartLink}>
           <img src={cartIcon} alt="" className={styles.cartIcon} />
-          <p className="cartLength">{getCartLength()}</p>
+          {getCartLength() > 0 && (
+            <p className={styles.cartLength}>{getCartLength()}</p>
+          )}
         </a>
       </styles>
     </nav>

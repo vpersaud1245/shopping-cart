@@ -11,9 +11,8 @@ function capitalizeFirstLetter(string) {
 }
 
 export default function ProductPage() {
-  const { getProduct, addProduct, hasProduct, products, removeProduct } =
+  const { getProduct, addProduct, hasProduct, removeProduct } =
     useContext(CartContext);
-  console.log(products);
   const product = useLoaderData();
   const [qtyAmount, setQtyAmount] = useState(
     hasProduct(product.id) ? getProduct(product.id).qty : 1

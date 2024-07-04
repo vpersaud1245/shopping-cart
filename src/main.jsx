@@ -41,6 +41,5 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 
 /**
  * TODO:
- * Implement removing products
- * Style Cart Length on icon
+ * Format product prices
  */
