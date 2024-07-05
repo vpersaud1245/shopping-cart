@@ -42,5 +42,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 /**
  * TODO:
  * Format product prices
- * Add store page
+ * Add sidebar
+ * Add add to cart on store page
+ * Add links to products from store page
+ * Make sidebar filter
+ * Add search
  */

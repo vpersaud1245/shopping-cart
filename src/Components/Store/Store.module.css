@@ -3,11 +3,6 @@
   width: 100%;
 }
 
-.sidebar {
-  border: 1px solid black;
-  padding: 50px;
-}
-
 .productGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -28,7 +23,7 @@
 }
 
 .productImg {
-  height: auto;
+  max-height: 50%;
   width: 40%;
   background-color: transparent;
   align-self: center;
@@ -50,4 +45,10 @@
 
 .productCategory {
   color: #a3a3a3;
+}
+
+.gridTitle {
+  padding: 50px 20px 20px 0;
+  font-size: 16px;
+  font-weight: 600;
 }
