@@ -24,7 +24,9 @@ function Store() {
                   className={styles.productImg}
                 ></img>
                 <div className={styles.productInfo}>
-                  <p className={styles.productTitle}>{product.title}</p>
+                  <p className={styles.productTitle}>
+                    {product.title.substring(0, 36)}
+                  </p>
                   <p className={styles.productCategory}>
                     {capitalizeFirstLetter(product.category)}
                   </p>

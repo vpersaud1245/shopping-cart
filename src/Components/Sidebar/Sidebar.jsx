@@ -1,7 +1,7 @@
 import styles from "./Sidebar.module.css";
 import { productsLoader } from "../../Loaders/productLoader";
 
-export async function productByCategoryLoader(category) {
+async function productByCategoryLoader(category) {
   const response = await fetch(
     `https://fakestoreapi.com/products/category/${category}`
   );
