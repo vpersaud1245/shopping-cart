@@ -9,6 +9,7 @@ import "./index.css";
 import ProductPage from "./Components/Product/Product.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "./Components/Error/ErrorPage.jsx";
+import Sidebar from "./Components/Sidebar/Sidebar.jsx";
 
 const router = createBrowserRouter([
   {
@@ -23,7 +24,14 @@ const router = createBrowserRouter([
           { path: "/", element: <Carousel />, loader: productsLoader },
         ],
       },
-      { path: "/store", element: <Store />, loader: productsLoader },
+      {
+        path: "/store",
+        element: <Store />,
+        loader: productsLoader,
+        children: [
+          { path: "/store", element: <Sidebar />, loader: productsLoader },
+        ],
+      },
       {
         path: "/products/:productID",
         element: <ProductPage />,
@@ -41,8 +49,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 
 /**
  * TODO:
- * Format product prices
- * Add sidebar
+ * Format product prices to show xx.xx
  * Add add to cart on store page
  * Add links to products from store page
  * Make sidebar filter
