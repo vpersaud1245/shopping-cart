@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, Link } from "react-router-dom";
 import Sidebar from "../Sidebar/Sidebar.jsx";
 import styles from "./Store.module.css";
 import { useState } from "react";
@@ -19,30 +19,37 @@ function Store() {
           <motion.div layout className={styles.productGrid}>
             <AnimatePresence>
               {products.map((product) => (
-                <motion.div
+                <Link
+                  to={`/products/${product.id}`}
                   key={product.id}
-                  layout
-                  animate={{ opacity: 1 }}
-                  initial={{ opacity: 0 }}
-                  exit={{ opacity: 0 }}
-                  className={styles.productCard}
+                  style={{ textDecoration: "none", color: "inherit" }}
                 >
-                  <img
-                    src={product.image}
-                    alt={`Image of ${product.title}`}
-                    className={styles.productImg}
-                  ></img>
-                  <div className={styles.productInfo}>
-                    <p className={styles.productTitle}>
-                      {product.title.substring(0, 36)}
-                    </p>
-                    <p className={styles.productCategory}>
-                      {capitalizeFirstLetter(product.category)}
-                    </p>
-                    <p className={styles.productPrice}>{`$${product.price}`}</p>
-                  </div>
-                </motion.div>
-              ))}{" "}
+                  <motion.div
+                    layout
+                    animate={{ opacity: 1 }}
+                    initial={{ opacity: 0 }}
+                    exit={{ opacity: 0 }}
+                    className={styles.productCard}
+                  >
+                    <img
+                      src={product.image}
+                      alt={`Image of ${product.title}`}
+                      className={styles.productImg}
+                    ></img>
+                    <div className={styles.productInfo}>
+                      <p className={styles.productTitle}>
+                        {product.title.substring(0, 36)}
+                      </p>
+                      <p className={styles.productCategory}>
+                        {capitalizeFirstLetter(product.category)}
+                      </p>
+                      <p
+                        className={styles.productPrice}
+                      >{`$${product.price}`}</p>
+                    </div>
+                  </motion.div>
+                </Link>
+              ))}
             </AnimatePresence>
           </motion.div>
         </div>
