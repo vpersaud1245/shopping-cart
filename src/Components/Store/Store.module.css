@@ -53,6 +53,7 @@
 .productTitle,
 .productPrice {
   font-weight: 600;
+  color: black;
 }
 
 .productCategory {
