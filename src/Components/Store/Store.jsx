@@ -3,9 +3,7 @@ import Sidebar from "../Sidebar/Sidebar.jsx";
 import styles from "./Store.module.css";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-function capitalizeFirstLetter(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-}
+import { capitalizeFirstLetter, formatPrice } from "../../Util/formatters.js";
 
 function Store() {
   const [products, setProducts] = useState(useLoaderData());
@@ -43,9 +41,9 @@ function Store() {
                       <p className={styles.productCategory}>
                         {capitalizeFirstLetter(product.category)}
                       </p>
-                      <p
-                        className={styles.productPrice}
-                      >{`$${product.price}`}</p>
+                      <p className={styles.productPrice}>
+                        {formatPrice(product.price)}
+                      </p>
                     </div>
                   </motion.div>
                 </Link>

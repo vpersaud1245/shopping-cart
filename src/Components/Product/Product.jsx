@@ -6,9 +6,7 @@ import minusIcon from "../../assets/minusIcon.svg";
 import { useEffect, useState, useContext } from "react";
 import Product from "../../Product/product.js";
 import { CartContext } from "../../Cart/cart.jsx";
-function capitalizeFirstLetter(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-}
+import { capitalizeFirstLetter, formatPrice } from "../../Util/formatters.js";
 
 export default function ProductPage() {
   const { getProduct, addProduct, hasProduct, removeProduct } =
@@ -50,7 +48,7 @@ export default function ProductPage() {
           <p className={styles.category}>
             {capitalizeFirstLetter(product.category)}
           </p>
-          <p className={styles.price}>{`$${product.price}`}</p>
+          <p className={styles.price}>{formatPrice(product.price)}</p>
           <div className={styles.quantityContainer}>
             <button
               className={styles.minusQtyBtn}
