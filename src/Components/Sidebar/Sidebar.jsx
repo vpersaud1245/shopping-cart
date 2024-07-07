@@ -12,6 +12,13 @@ async function productByCategoryLoader(category) {
 // eslint-disable-next-line react/prop-types
 function Sidebar({ setProducts }) {
   async function filterProducts(e) {
+    // Uncheck other filter buttons so only one filter is applied
+    const allFilterBtns = document.querySelectorAll('input[class*="checkbox"]');
+    allFilterBtns.forEach((filterBtn) => {
+      if (filterBtn != e.target) {
+        filterBtn.checked = false;
+      }
+    });
     if (e.target.checked) {
       const filteredProducts = await productByCategoryLoader(
         e.target.parentNode.textContent.toLowerCase()
