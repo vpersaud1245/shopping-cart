@@ -49,10 +49,11 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 
 /**
  * TODO:
- * Add links to store
- * Make it so when filter is clicked no other filter can be applied, if other filter is clicked the current one is deselected.
  * Format product prices to show xx.xx
  * Add add to cart on store page
- * Add links to products from store page
  * Add search
+ * Add cart page
+ * Add cart hover
+ * Add cart checkout
+ * media queries
  */
