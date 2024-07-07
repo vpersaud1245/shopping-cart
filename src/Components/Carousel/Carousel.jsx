@@ -36,7 +36,7 @@ export default function Carousel() {
       setTimeout(() => {
         showHideIcons();
       }, 450);
-    }, 15000);
+    }, 10000);
 
     return () => {
       window.clearInterval(autoScrollInterval);

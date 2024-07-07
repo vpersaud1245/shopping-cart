@@ -49,9 +49,11 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 
 /**
  * TODO:
+ * Add sidebar store page filter smooth animation following this https://www.youtube.com/watch?v=nyg5Lpl6AiM&t=6s
+ * Add links to store
+ * Make it so when filter is clicked no other filter can be applied, if other filter is clicked the current one is deselected.
  * Format product prices to show xx.xx
  * Add add to cart on store page
  * Add links to products from store page
- * Make sidebar filter
  * Add search
  */
