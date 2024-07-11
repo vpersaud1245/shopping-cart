@@ -12,10 +12,13 @@
   display: flex;
   border-radius: 10px;
   max-width: fit-content;
+  border: none;
+  background-color: transparent;
 }
 
 .backBtn:hover {
   background-color: lightgray;
+  cursor: pointer;
 }
 
 .backArrowImg {

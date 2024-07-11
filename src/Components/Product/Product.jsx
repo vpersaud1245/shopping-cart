@@ -1,4 +1,4 @@
-import { Link, useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import styles from "./Product.module.css";
 import backArrowSvg from "../../assets/backArrow.svg";
 import plusIcon from "../../assets/plusIcon.svg";
@@ -12,6 +12,7 @@ export default function ProductPage() {
   const { getProduct, addProduct, hasProduct, removeProduct } =
     useContext(CartContext);
   const product = useLoaderData();
+  const navigate = useNavigate();
   const [qtyAmount, setQtyAmount] = useState(
     hasProduct(product.id) ? getProduct(product.id).qty : 1
   );
@@ -28,13 +29,16 @@ export default function ProductPage() {
 
   return (
     <div className={styles.ProductPage}>
-      <Link className={styles.backBtn} to="/">
+      <button className={styles.backBtn}>
         <img
           src={backArrowSvg}
           alt="Back arrow"
           className={styles.backArrowImg}
+          onClick={() => {
+            navigate(-1);
+          }}
         />
-      </Link>
+      </button>
       <div className={styles.productSection}>
         <div className={styles.productImgContainer}>
           <img
