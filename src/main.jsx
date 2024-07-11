@@ -49,7 +49,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 
 /**
  * TODO:
- * Format product prices to show xx.xx
+ * finish Styling cart icon on store page
  * Add add to cart on store page
  * Add search
  * Add cart page
