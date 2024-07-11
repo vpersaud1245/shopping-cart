@@ -35,8 +35,12 @@
   align-self: center;
 }
 
-.productInfo {
+.cardLowerContainer {
   height: 20%;
+  display: flex;
+}
+
+.productInfo {
   width: 100%;
   padding: 0 10px;
   font-size: 16px;
@@ -58,6 +62,17 @@
 
 .productCategory {
   color: #a3a3a3;
+}
+
+.cartIcon {
+  height: auto;
+  width: 30px;
+  align-self: flex-end;
+  transition: transform 300ms;
+}
+
+.cartIcon:hover {
+  transform: scale(1.2);
 }
 
 .gridTitle {
