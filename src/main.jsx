@@ -10,6 +10,7 @@ import ProductPage from "./Components/Product/Product.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "./Components/Error/ErrorPage.jsx";
 import Sidebar from "./Components/Sidebar/Sidebar.jsx";
+import CartPage from "./Components/CartPage/CartPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,7 @@ const router = createBrowserRouter([
         element: <ProductPage />,
         loader: productLoader,
       },
+      { path: "/cart", element: <CartPage /> },
     ],
   },
 ]);
@@ -49,8 +51,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 
 /**
  * TODO:
- * finish Styling cart icon on store page
- * Add add to cart on store page
+ * Fix issue with removing from cart on cart page
+ * Finish styling cart page
  * Add search
  * Add cart page
  * Add cart hover

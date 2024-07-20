@@ -30,12 +30,12 @@ function Navigation() {
             placeholder="Search"
           />
         </form>
-        <a href="" className={styles.cartLink}>
+        <Link to="/cart" className={styles.cartLink}>
           <img src={cartIcon} alt="" className={styles.cartIcon} />
           {getCartLength() > 0 && (
             <p className={styles.cartLength}>{getCartLength()}</p>
           )}
-        </a>
+        </Link>
       </styles>
     </nav>
   );
