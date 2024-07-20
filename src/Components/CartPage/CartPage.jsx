@@ -90,9 +90,7 @@ export default function CartPage() {
                 onClick={() => {
                   removeProduct(product.id);
                   setProductDetails(
-                    productDetails.filter((product) => {
-                      return product.id != product.id;
-                    })
+                    productDetails.filter((p) => p.id !== product.id)
                   );
                 }}
               >
